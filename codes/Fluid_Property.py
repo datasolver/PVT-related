@@ -27,7 +27,7 @@ def gas_compr_factor(Input_Pressure, Input_Temperature, EOS_method,Gas, phase=0)
             - PR-Peneloux
             - SRK
             - SRK-Peneloux
-            - SBWR (Solve's Benedict Rubin Webb)
+            - SBWR (Soave's 1999 modification of BWR-EOS)
             - Lee-Kesler.
         4. Gas - only Methane and Helium. 
             
@@ -40,13 +40,18 @@ def gas_compr_factor(Input_Pressure, Input_Temperature, EOS_method,Gas, phase=0)
     #EOS parameters for methane
     if Gas == 'Methane':
         Tc = 190.40     # Critical temperature of methane, K
-        Pc = 4.6        # Critical pressure of methane, Mpa
+        Pc = 4.6        # Critical pressure of methane, MPa
         omega = 0.0113
     
     elif Gas == 'Helium':
-        Tc = 5.19     # Critical temperature of methane, K
-        Pc = 0.227        # Critical pressure of methane, Mpa
-        omega = 0.0        
+        Tc = 5.19         # Critical temperature of helium, K
+        Pc = 0.227        # Critical pressure of helium, Mpa
+        omega = 0.0
+    
+    elif Gas == 'CO2':
+        Tc = 304.13       # Critical temperature of CO2, K
+        Pc = 7.377        # Critical pressure of CO2, MPa
+        omega = 0.225     # taken from http://webserver.dmt.upm.es/~isidoro/dat1/eGAS.pdf
     
     Compr_factor = []
     for j in range(len(Input_Pressure)):
