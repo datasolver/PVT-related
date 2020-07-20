@@ -9,7 +9,6 @@ import numpy as np
 from scipy.optimize import fsolve
 import math as mt
 
-
 def gas_compr_factor(Input_Pressure, Input_Temperature, EOS_method,Gas, phase=0):
     
     """
@@ -30,9 +29,7 @@ def gas_compr_factor(Input_Pressure, Input_Temperature, EOS_method,Gas, phase=0)
             - SBWR (Soave's 1999 modification of BWR-EOS)
             - Lee-Kesler.
         4. Gas - only Methane and Helium. 
-            
-            
-    
+        
     """
     # constants 
     R = 8.314       # Gas constant, Jmol-1K-1
@@ -247,3 +244,7 @@ def gas_compr_factor(Input_Pressure, Input_Temperature, EOS_method,Gas, phase=0)
         #Compr_factor.append(Z)
 
     return(Compr_factor)
+
+# In[]
+# example
+ZCO2 = gas_compr_factor([25], [40], 'PR', 'CO2')
