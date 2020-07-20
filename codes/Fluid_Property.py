@@ -27,7 +27,7 @@ def gas_compr_factor(Input_Pressure, Input_Temperature, EOS_method,Gas, phase=0)
             - PR-Peneloux
             - SRK
             - SRK-Peneloux
-            - SBWR
+            - SBWR (Solve's Benedict Rubin Webb)
             - Lee-Kesler.
         4. Gas - only Methane and Helium. 
             
